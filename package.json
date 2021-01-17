@@ -1,0 +1,38 @@
+{
+  "name": "movie-api-app",
+  "version": "1.0.0",
+  "description": "create movie app by api in movie db",
+  "main": "index.js",
+  "engine": {
+    "node": "14.15.1",
+    "npm": "6.14.8"
+  },
+  "scripts": {
+    "predev": "kill -9 $(lsof -i :5000 | grep -i -E -o '\\s[0-9]+\\s') || true",
+    "start": "node server/index.js",
+    "backend": "nodemon --watch server --delay 1500 server/index.js",
+    "frontend": "npm run start --prefix client",
+    "dev": "concurrently \"npm run backend\" \"npm run start --prefix client\""
+  },
+  "author": "Ji Yeon Park",
+  "license": "MIT",
+  "dependencies": {
+    "bcrypt": "^5.0.0",
+    "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
+    "debug": "^4.3.1",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "moment": "^2.29.1",
+    "mongoose": "^5.11.12",
+    "react-redux": "^7.2.2",
+    "saslprep": "^1.0.3",
+    "supports-color": "^8.1.0"
+  },
+  "devDependencies": {
+    "@ant-design/icons": "^4.3.0",
+    "concurrently": "^5.3.0",
+    "nodemon": "^2.0.7"
+  }
+}
