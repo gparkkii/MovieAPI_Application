@@ -10,7 +10,7 @@ function MainImage(props) {
                 url('${props.image}'), #1c1c1c`,
                 height: '620px',
                 backgroundSize: 'cover',
-                backgroundPosition: 'center',
+                backgroundPosition: 'center center',
                 width: '100%',
                 position: 'relative'
         }}> 

@@ -19,7 +19,7 @@ function LandingPage() {
     useEffect(() => {
         const endpoint = `${API_URL}movie/popular?api_key=${API_KEY}&language=en-US&page=1`;
         fetchMovies(endpoint);
-    },[]);
+    }, []);
 
     useEffect(() => {
         window.addEventListener("scroll", handleScroll);
@@ -28,10 +28,8 @@ function LandingPage() {
     const fetchMovies = ( endpoint ) => {
         axios.get(endpoint)
             .then(function(response) {
-                console.log(response);
                 setMovies([...Movies, ...response.data.results]);
                 setMainMovieImg(MainMovieImg || response.data.results[0]);
-                console.log(MainMovieImg);
                 setCurrentPage(response.data.page);
             }, setLoading(false))
             .catch( err => {
@@ -43,7 +41,7 @@ function LandingPage() {
     const loadMoreItems = () => {
         let endpoint = '';
         setLoading(true);
-        console.log('CurrentPage :', CurrentPage)
+        console.log('CurrentPage :', CurrentPage);
         endpoint = `${API_URL}movie/popular?api_key=${API_KEY}&language=en-US&page=${ CurrentPage + 1 }`;
         fetchMovies(endpoint);
     };
@@ -57,7 +55,7 @@ function LandingPage() {
         const windowBottom = windowHeight + window.pageYOffset;
         if (windowBottom >= docHeight - 1) {
             // loadMoreItems()
-            console.log('clicked')
+            console.log('clicked');
             buttonRef.current.click();
         }
 
