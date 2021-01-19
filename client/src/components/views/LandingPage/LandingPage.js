@@ -71,13 +71,13 @@ function LandingPage() {
                         description={MainMovieImg.overview}
                     />
                 }
-                <div style={{ width: '85%', margin: '1rem auto' }}>
+                <div style={{ width: '90%', maxWidth: '1200px', margin: '1rem auto' }}>
                     <Title level={2}> Latest Movies </Title>
-                    <hr/>
                     <Row gutter={[16, 16]}>
                         {Movies && Movies.map((movie, index) => (
                             <React.Fragment key={index}>
                                 <GridCards
+                                    landingPage={true}
                                     image={movie.poster_path ? 
                                         `${IMAGE_BASE_URL}w500${movie.poster_path}`
                                         : null
