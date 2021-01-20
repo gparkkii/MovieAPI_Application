@@ -3,10 +3,10 @@ import React, { useEffect, useState } from 'react';
 import { API_KEY, API_URL, IMAGE_BASE_URL } from '../../Config';
 import { Row, Typography } from 'antd';
 import MainImage from '../LandingPage/Sections/MainImage';
-import MovieInfo from '../DetailPage/MovieInfo';
+import MovieInfo from './Sections/MovieInfo';
 import GridCards from '../Common/GridCards';
-import ToggleButtons from '../Common/ToggleButtons';
 import initialProfile from '../Common/profile.jpg';
+import FavoriteButton from './Sections/FavoriteButton';
 
 function MovieDetail(props) {
 
@@ -49,7 +49,13 @@ function MovieDetail(props) {
                 title={Movie.original_title}
                 description={Movie.overview}
             />}
+
+            {/* Body */}
             <div style={{ width: '90%', maxWidth: '1200px', margin: '0 auto'}}>
+                
+                {/* Favorite Button */}
+                <FavoriteButton movieInfo={Movie} movieId={movieId} userFrom={localStorage.getItem('userId')} />
+
                 {/* Movie Info */}
                 <Title level={2}> Movie Info </Title>
                 <MovieInfo
