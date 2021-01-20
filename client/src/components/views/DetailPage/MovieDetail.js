@@ -31,7 +31,6 @@ function MovieDetail(props) {
     useEffect(() => {
         axios.get(`${API_URL}movie/${movieId}/credits?api_key=${API_KEY}`)
             .then((response) => {
-                console.log(response.data);
                 setCast(response.data.cast);
                 setCrew(response.data.crew);
             })
