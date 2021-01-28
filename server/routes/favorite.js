@@ -19,12 +19,10 @@ router.post("/favorited", (req, res) => {
         .exec((err, info) => {
             if(err) return res.status(400).send(err);
             // front에 다시 숫자정보 보내주기
-
             let result = false;
             if(info.length !== 0) {
                 result = true;
             }
-
             return res.status(200).json({ success: true, favoriteNumber: result });
         }) 
 })
